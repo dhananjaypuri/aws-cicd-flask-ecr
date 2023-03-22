@@ -1,0 +1,16 @@
+version: 0.2
+env:
+  variables:
+    AWS_REGION: "us-east-1"
+    AWS_ECR_PASSWORD: "080916090676.dkr.ecr.us-east-1.amazonaws.com"
+phases:
+  pre_build:
+    commands:
+      - echo "Enter pre build phase at `date`"
+      - aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ECR_PASSWORD}
+  build:
+    commands:
+      - echo "Enter build phase at `date`"
+  post_build:
+    commands:
+      - echo "Enter build phase at `date`"
