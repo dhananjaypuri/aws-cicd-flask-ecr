@@ -3,6 +3,7 @@ env:
   variables:
     AWS_REGION: "us-east-1"
     AWS_ECR_PASSWORD: "080916090676.dkr.ecr.us-east-1.amazonaws.com"
+    IMAGE_NAME: "demo-flask-app"
 phases:
   pre_build:
     commands:
@@ -11,6 +12,9 @@ phases:
   build:
     commands:
       - echo "Enter build phase at `date`"
+      - docker image build -t ${AWS_ECR_PASSWORD}/${IMAGE_NAME}:latest .
+
   post_build:
     commands:
       - echo "Enter build phase at `date`"
+      - docker image push ${AWS_ECR_PASSWORD}/${IMAGE_NAME}:latest
