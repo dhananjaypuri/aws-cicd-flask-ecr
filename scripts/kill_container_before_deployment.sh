@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 if docker ps -a --format "{{.ID}} {{.Names}}" | grep flaskapp$
 then
     container_id=$(docker ps -a --format "{{.ID}} {{.Names}}" | grep flaskapp$ | awk '{print $1}')
