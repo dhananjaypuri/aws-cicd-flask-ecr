@@ -9,7 +9,7 @@ def home():
 
 @app.route('/contact')
 def contact():
-    return f"This is running on {socket.gethostname()}<br/><br/><h1>This is Contact Page !!!!! <h1/>";
+    return f"This is running on {socket.gethostname()}<br/><br/><h1>This is Contact Page  Coming from code pipeline !!!!! <h1/>";
 
 if __name__ == "__main__":
     app.run(debug=True);
