@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /opt/app
+
+hooks:
+  ApplicationStop:
+    - location: scripts/kill_container_before_deployment.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: scripts/download_image.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_container.sh
+      timeout: 300
+      runas: root
+
