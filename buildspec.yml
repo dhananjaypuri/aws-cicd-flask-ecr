@@ -13,8 +13,9 @@ phases:
     commands:
       - echo "Enter build phase at `date`"
       - docker login -u dhananjaypuri -p mydocker@123
-      - docker build -t ${IMAGE_NAME}:latest .
-      - docker tag ${IMAGE_NAME}:latest ${AWS_ECR_PASSWORD}/${IMAGE_NAME}:latest
+      - docker image build -t ${AWS_ECR_PASSWORD}/${IMAGE_NAME}:latest .
+#       - docker build -t ${IMAGE_NAME}:latest .
+#       - docker tag ${IMAGE_NAME}:latest ${AWS_ECR_PASSWORD}/${IMAGE_NAME}:latest
 
   post_build:
     commands:
