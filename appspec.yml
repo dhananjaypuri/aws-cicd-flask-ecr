@@ -11,11 +11,11 @@ hooks:
       timeout: 300
       runas: root
   BeforeInstall:
-    - location: /opt/app/scripts/download_image.sh
+    - location: scripts/download_image.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: /opt/app/scripts/start_container.sh
+    - location: scripts/start_container.sh
       timeout: 300
       runas: root
 
